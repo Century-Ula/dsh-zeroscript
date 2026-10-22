@@ -4,6 +4,23 @@ All notable changes to **dsh-zeroscript** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] — 2026-10-23
+
+### Added
+
+- **DSH bundle packaging.** `package.json` now declares
+  `dsh.bundle.patch: ./cordis.patch.yml` and the repo ships that patch layer, so
+  the plugin can be installed as a normal DSH profile bundle (plugin manager)
+  in addition to the `install.ps1` profile-patch route. Use one of the two
+  routes at a time — both at once would register the plugin twice.
+- `cordis.patch.yml` (bundle layer) added to `files`.
+
+### Changed
+
+- Repository renamed from `mspd-ms` to **`dsh-zeroscript`**; all links in
+  README / package.json / docs updated.
+- Version bumped to `1.2.0`; release asset `dsh-zeroscript-1.2.0.zip`.
+
 ## [1.1.0] — 2026-10-23
 
 First public release, verified against **DSH 0.2.0-rc.2** on Windows 11.

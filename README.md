@@ -193,6 +193,16 @@ curl http://127.0.0.1:19387/zeroscript/api/status
 控制台网页：**<http://127.0.0.1:19387/zeroscript>** —— 三个状态灯全绿即可用。
 也可以在对话里让 Agent 调一次 `roblox_status` 自检。
 
+### 方式 B：作为 DSH 组合包（bundle）安装
+
+仓库同时按 DSH 的 bundle 规范声明了 `dsh.bundle.patch`（见 `cordis.patch.yml`）。
+如果你的 DSH 版本提供组合包/插件市场安装（0.2 的 `dsh-plugin-manager`），
+可以直接把本仓库/本包添加为组合包，由插件管理器拉起。
+
+> ⚠️ **`install.ps1` 与 bundle 安装二选一**，同时启用会注册两份插件。
+> 这条打包声明同时让本插件能被 DSH 插件目录/索引正常识别；
+> `install.ps1` 仍是本仓库文档中最稳妥的安装路径。
+
 ### 手动安装（不想跑脚本）
 
 1. 建 junction：

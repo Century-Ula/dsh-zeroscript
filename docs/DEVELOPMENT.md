@@ -8,10 +8,10 @@ DSH 0.2 的第三方 **host 插件**有两种接法：
 
 | 接法 | 做法 | 本项目 |
 |---|---|---|
-| **profile patch 条目**（本插件用的） | 在 `<profile>\cordis.patch.yml` 插入一个 loader 条目，`name` 可以是包名、绝对路径或 `file://` URL | ✅ 已实测 |
-| **bundle 组合包** | 包声明 `dsh.bundle.patch`，装进 profile `package.json` 的 `dsh.profile.bundles` | 未采用；功能等价，但需要 pnpm 安装 + 重启 |
+| **profile patch 条目**（推荐，已实测） | 在 `<profile>\cordis.patch.yml` 插入一个 loader 条目，`name` 可以是包名、绝对路径或 `file://` URL | ✅ 已实测（`install.ps1`） |
+| **bundle 组合包** | 包声明 `dsh.bundle.patch`，装进 profile `package.json` 的 `dsh.profile.bundles` | ✅ 自 1.2.0 起声明（`cordis.patch.yml`）；安装路径未在本机实测，两种方式不要同时启用 |
 
-本插件为什么用 profile patch 条目：
+本插件为什么优先用 profile patch 条目：
 
 - 插件不是 npm 包，不依赖安装步骤，改代码没有构建；
 - 条目里的 `?m=N` 可以精确控制模块缓存，热重载时整个模块图一起换；

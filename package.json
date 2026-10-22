@@ -1,6 +1,6 @@
 {
   "name": "dsh-zeroscript",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "description": "Drive Roblox Studio from the DeepSeek Harness agent: the ZeroScript bridge as a DSH plugin, with 28+ Studio tools, a web console, and no terminal window.",
   "license": "MIT",
@@ -37,6 +37,9 @@
     "3dsmax"
   ],
   "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
     "client": {
       "platform": "web",
       "inject": []
@@ -52,6 +55,7 @@
     "LICENSE",
     "install.ps1",
     "uninstall.ps1",
+    "cordis.patch.yml",
     "cordis.patch.example.yml"
   ],
   "engines": {

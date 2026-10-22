@@ -1,0 +1,13 @@
+# dsh-zeroscript — DSH bundle layer
+#
+# This file makes the package installable as a DSH profile bundle
+# (`dsh.bundle.patch` in package.json). The bundle manager adds the package to a
+# profile's dependencies, and the loader composes this insert before the user's
+# own cordis.patch.yml, so the plugin loads with its defaults.
+#
+# Users who install via install.ps1 (profile patch entry) must NOT also enable
+# this bundle: two entries would register the plugin twice.
+- insert:
+    - id: dsh-zeroscript
+      name: dsh-zeroscript
+      config: {}
