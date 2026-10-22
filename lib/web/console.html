@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZeroScript 控制台 · DSH</title>
+    <link rel="stylesheet" href="/zeroscript/console.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">ZS</span>
+        <div>
+          <h1>ZeroScript 控制台</h1>
+          <p class="sub">浏览器 → 本地 Bridge → Roblox Studio</p>
+        </div>
+      </div>
+
+      <div class="pills">
+        <span class="pill" id="pill-bridge" title="与 bridge.py 的 WebSocket 连接">
+          <i class="dot"></i><span class="pill-label">Bridge</span>
+        </span>
+        <span class="pill" id="pill-studio" title="Roblox Studio 中是否已打开一个 place">
+          <i class="dot"></i><span class="pill-label">Studio</span>
+        </span>
+        <span class="pill" id="pill-mcp" title="StudioMCP 子进程是否存活">
+          <i class="dot"></i><span class="pill-label">MCP</span>
+        </span>
+        <span class="pill pill-quiet" id="pill-tools"><span class="pill-label">工具 —</span></span>
+      </div>
+
+      <div class="actions">
+        <label class="field inline" title="可选：填入后会自动并入每次调用（Studio 未指定时通常可留空）">
+          <span>studio_id</span>
+          <input id="studio-id" type="text" placeholder="留空即可" autocomplete="off" />
+        </label>
+        <button id="btn-detect" class="btn">检测 Studio</button>
+        <button id="btn-refresh" class="btn">刷新工具</button>
+        <button id="btn-launch" class="btn">启动 Bridge</button>
+        <button id="btn-reconnect" class="btn">重连</button>
+      </div>
+    </header>
+
+    <div class="verdict" id="verdict" hidden>
+      <span class="verdict-dot"></span>
+      <div class="verdict-body">
+        <strong id="verdict-label">—</strong>
+        <span id="verdict-detail"></span>
+        <span id="verdict-action" class="verdict-action" hidden></span>
+      </div>
+      <span id="verdict-proof" class="verdict-proof"></span>
+    </div>
+
+    <div class="notice" id="notice" hidden></div>
+
+    <main class="layout">
+      <section class="panel panel-tools">
+        <div class="panel-head">
+          <h2>工具</h2>
+          <input id="tool-search" class="search" type="search" placeholder="搜索工具…" autocomplete="off" />
+        </div>
+        <ul id="tool-list" class="tool-list">
+          <li class="empty">正在连接…</li>
+        </ul>
+      </section>
+
+      <section class="panel panel-run">
+        <div class="panel-head">
+          <h2 id="run-title">选择一个工具</h2>
+          <div class="head-right">
+            <button id="btn-raw" class="btn btn-ghost" title="直接编辑 JSON 参数">JSON</button>
+            <button id="btn-run" class="btn btn-primary" disabled>执行</button>
+          </div>
+        </div>
+
+        <p id="run-desc" class="desc">从左侧列表选择一个 Roblox Studio 工具，填写参数后执行。</p>
+
+        <form id="param-form" class="params"></form>
+
+        <div id="raw-wrap" class="raw-wrap" hidden>
+          <textarea id="raw-args" spellcheck="false">{}</textarea>
+        </div>
+
+        <div class="result-head">
+          <h3>结果</h3>
+          <span id="result-meta" class="meta"></span>
+        </div>
+        <div id="result" class="result">
+          <p class="empty">还没有执行任何工具。</p>
+        </div>
+      </section>
+
+      <section class="panel panel-log">
+        <div class="panel-head">
+          <h2>调用记录</h2>
+          <button id="btn-clear-log" class="btn btn-ghost">清空</button>
+        </div>
+        <ol id="call-log" class="call-log">
+          <li class="empty">暂无记录。</li>
+        </ol>
+      </section>
+    </main>
+
+    <script src="/zeroscript/console.js"></script>
+  </body>
+</html>

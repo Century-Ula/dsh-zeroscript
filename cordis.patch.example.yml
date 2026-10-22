@@ -1,0 +1,31 @@
+# 手动安装示例：把下面这一项追加到 DSH profile 的 cordis.patch.yml 末尾。
+#
+# 文件位置（默认 desktop profile，Windows）：
+#   C:\Users\<you>\.dsh\profiles\desktop\cordis.patch.yml
+#
+# 把 name 里的路径换成你本机的插件目录；?m=1 是模块缓存串，升级/改代码后
+# 把它 +1 可以强制重载（不重启 DSH 的情况下，前提是 HMR 正常）。
+#
+# profile 的 cordis.patch.yml 是「YAML 顶层数组」，所以下面这段是数组的一项。
+# 如果文件里只有 []，先用这段替换掉 []。
+- insert:
+    - id: zeroscript
+      name: "file:///C:/path/to/dsh-zeroscript/lib/index.js?m=1"
+      config:
+        # Bridge 端口，对应 ZeroScript 的 ZS_BRIDGE_PORT。
+        port: 17613
+        # 含 bridge.py 的目录；留空则自动在新旧 ZeroScript 目录里挑版本最新的。
+        bridgeDir: ""
+        # Bridge 没在跑时自动以「隐藏窗口」方式拉起 bridge.py。
+        autoLaunch: true
+        # all = 28+ 个 Studio 能力各注册一个 DSH 工具；generic = 只留 3 个常驻工具。
+        exposeTools: all
+        toolPrefix: roblox_
+        toolCallTimeoutMs: 120000
+        statusPollMs: 5000
+        # 可选：Roblox Open Cloud 上传（dcc_upload_to_roblox 用）。
+        # 建议改用环境变量 ROBLOX_OPEN_CLOUD_KEY / ROBLOX_CREATOR_USER_ID，
+        # 不要把密钥提交进任何仓库。
+        openCloudKey: ""
+        creatorUserId: ""
+        creatorGroupId: ""
