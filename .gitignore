@@ -1,0 +1,25 @@
+# --- Node / package manager ---
+node_modules/
+pnpm-lock.yaml
+
+# --- runtime artefacts ---
+logs/
+dcc-output/
+__pycache__/
+*.pyc
+
+# --- local/editor noise ---
+*.log
+*.bak
+*.bak-*
+*.orig
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- secrets (never commit an Open Cloud key) ---
+.env
+.env.*
+config.local.json
+*.secret.*
