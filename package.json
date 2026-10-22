@@ -4,6 +4,14 @@
   "private": true,
   "description": "Drive Roblox Studio from the DeepSeek Harness agent: the ZeroScript bridge as a DSH plugin, with 28+ Studio tools, a web console, and no terminal window.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Century-Ula/mspd-ms.git"
+  },
+  "homepage": "https://github.com/Century-Ula/mspd-ms#readme",
+  "bugs": {
+    "url": "https://github.com/Century-Ula/mspd-ms/issues"
+  },
   "type": "module",
   "main": "lib/index.js",
   "exports": {

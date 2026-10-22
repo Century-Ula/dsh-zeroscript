@@ -127,26 +127,39 @@ npm run verify:detect  # 直接对 Bridge 跑一遍检测阶梯
 
 ## 5. 发布流程（维护者）
 
-仓库已按可发布状态整理好（`.gitignore`、LICENSE、CHANGELOG、安装脚本、截图）。
+仓库已发布：<https://github.com/Century-Ula/mspd-ms>
+（首次发布是用 GitHub Git Data API 直接写入的：blobs → tree → commit → `refs/heads/main`，
+因为发布机上没有 git 且 GitHub 只经透明代理可达；效果与一次 `git push` 相同。）
+
+本机装好 git 之后，日常更新用标准流程：
 
 ```powershell
-git init
+git clone https://github.com/Century-Ula/mspd-ms.git
+# 改代码 / 文档 ...
 git add .
-git commit -m "dsh-zeroscript 1.1.0: ZeroScript bridge as a DSH plugin"
-git branch -M main
-git remote add origin https://github.com/<you>/dsh-zeroscript.git
-git push -u origin main
+git commit -m "fix: ..."
+git push
 ```
+
+或者继续用 API 方式（适合无 git 环境）：上传改动的 blob → 新建 tree →
+带 parent 创建 commit → `PATCH /git/refs/heads/main`。
+
+发版时：
+
+1. 更新 `package.json` 版本与 `CHANGELOG.md`；
+2. 重新打包（发布包只包含仓库里已有的文件，`node_modules/`、`logs/`、`dcc-output/` 除外）；
+3. `POST /repos/<owner>/<repo>/releases`，`tag_name=vX.Y.Z`；
+4. 把 zip 传到 release asset（`uploads.github.com`），并确认下载链接可用。
 
 发布前检查：
 
-1. `git status` 里不应该出现 `node_modules/`、`logs/`、`dcc-output/`、`*.bak-*`；
-2. 全仓搜索一遍 `openCloudKey` / `ROBLOX_OPEN_CLOUD_KEY`，确认没有把真实密钥带进来；
+1. 不应出现 `node_modules/`、`logs/`、`dcc-output/`、`*.bak-*`；
+2. 全仓搜索 `openCloudKey` / `ROBLOX_OPEN_CLOUD_KEY`，确认没有把真实密钥带进来；
 3. 版本号与 `CHANGELOG.md` 对齐；
 4. 在干净机器上按 README 走一遍安装（`.\install.ps1 -DryRun` → 真装 → 重启 DSH → `roblox_status`）。
 
-建议的仓库信息：
+建议的仓库信息（v1.1.0 发布时已设置）：
 
 - About：`Drive Roblox Studio from DeepSeek Harness — ZeroScript bridge as a DSH plugin`
-- Topics：`dsh`, `deepseek-harness`, `roblox`, `roblox-studio`, `mcp`, `lua`, `ai-agent`
-- Release：tag `v1.1.0`，附件可放 `dsh-zeroscript-1.1.0.zip`
+- Topics：`dsh`, `deepseek-harness`, `roblox`, `roblox-studio`, `mcp`, `ai-agent`, `luau`
+- Release：tag `v1.1.0`，附件 `dsh-zeroscript-1.1.0.zip`

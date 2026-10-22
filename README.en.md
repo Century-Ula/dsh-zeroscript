@@ -16,6 +16,10 @@
 
 > 中文文档见 [README.md](README.md)。
 
+> Repository: <https://github.com/Century-Ula/mspd-ms> ·
+> Download: <https://github.com/Century-Ula/mspd-ms/releases/latest> ·
+> Issues: <https://github.com/Century-Ula/mspd-ms/issues>
+
 ---
 
 ## Why
