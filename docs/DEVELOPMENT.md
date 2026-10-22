@@ -127,14 +127,14 @@ npm run verify:detect  # 直接对 Bridge 跑一遍检测阶梯
 
 ## 5. 发布流程（维护者）
 
-仓库已发布：<https://github.com/Century-Ula/mspd-ms>
+仓库已发布：<https://github.com/Century-Ula/dsh-zeroscript>
 （首次发布是用 GitHub Git Data API 直接写入的：blobs → tree → commit → `refs/heads/main`，
 因为发布机上没有 git 且 GitHub 只经透明代理可达；效果与一次 `git push` 相同。）
 
 本机装好 git 之后，日常更新用标准流程：
 
 ```powershell
-git clone https://github.com/Century-Ula/mspd-ms.git
+git clone https://github.com/Century-Ula/dsh-zeroscript.git
 # 改代码 / 文档 ...
 git add .
 git commit -m "fix: ..."

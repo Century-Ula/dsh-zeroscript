@@ -4,9 +4,9 @@
 > DSH 里的 Agent 直接读写脚本、执行 Luau、操作你的 Roblox Studio。
 > **没有浏览器扩展、没有聊天网页、没有需要一直开着的黑窗口。**
 
-> 仓库：<https://github.com/Century-Ula/mspd-ms> ·
-> 下载（Release ZIP）：<https://github.com/Century-Ula/mspd-ms/releases/latest> ·
-> 问题反馈：<https://github.com/Century-Ula/mspd-ms/issues>
+> 仓库：<https://github.com/Century-Ula/dsh-zeroscript> ·
+> 下载（Release ZIP）：<https://github.com/Century-Ula/dsh-zeroscript/releases/latest> ·
+> 问题反馈：<https://github.com/Century-Ula/dsh-zeroscript/issues>
 
 ![ZeroScript 控制台](docs/console-live.png)
 

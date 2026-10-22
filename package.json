@@ -6,11 +6,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Century-Ula/mspd-ms.git"
+    "url": "git+https://github.com/Century-Ula/dsh-zeroscript.git"
   },
-  "homepage": "https://github.com/Century-Ula/mspd-ms#readme",
+  "homepage": "https://github.com/Century-Ula/dsh-zeroscript#readme",
   "bugs": {
-    "url": "https://github.com/Century-Ula/mspd-ms/issues"
+    "url": "https://github.com/Century-Ula/dsh-zeroscript/issues"
   },
   "type": "module",
   "main": "lib/index.js",
