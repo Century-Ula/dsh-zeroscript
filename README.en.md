@@ -5,7 +5,7 @@
 > 28+ Studio tools as DSH tools, a standalone web console, a GUI panel —
 > **no browser extension, no chat web page, no terminal window.**
 
-![ZeroScript console](docs/console-live.png)
+![ZeroScript console](https://github.com/Century-Ula/dsh-zeroscript/releases/download/v1.2.1/console-live.png)
 
 <p align="center">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
