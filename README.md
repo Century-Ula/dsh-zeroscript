@@ -412,7 +412,7 @@ node tools\verify-detect.mjs 17613                # 不经 DSH，直接对 Bridg
 |---|---|
 | 工具列表里没有 `roblox_*` | 插件没被装载：看 `logs\startup.log`；确认 patch 条目存在且路径正确；重启 DSH |
 | 控制台/网页 404 | 插件当时没在服务；看 `startup.log`，再查 `/zeroscript-version` |
-| `roblox_status` 说 bridge 离线 | 点控制台「启动 Bridge」，或看 `logs\bridge_debug.log`；确认 Python 可用 |
+| `roblox_status` 说 bridge 离线 | 先看 `logs\startup.log` 里的 `launch (...)` 行：它会写明是 Python 找不到、缺 `websockets`、还是 `bridge.py` 路径不对。需要 **Python 3.9+ 且 `pip install --user websockets`**；装完不用管版本，插件会自动挑一个能用的解释器（也可用 `ZS_PYTHON` 指定） |
 | 状态黄、工具能列出但调用失败 | Studio 没加载 place，或 MCP 开关没打开；点「检测 Studio」看结论 |
 | 面板出现但一直转圈 | 刷新页面；再不行看 `/zeroscript/api/status` 是否 200 |
 | 多开 Studio 时调用报缺 `studio_id` | 先 `roblox_list_roblox_studios`，再带 `studio_id` |

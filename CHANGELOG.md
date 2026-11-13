@@ -4,6 +4,27 @@ All notable changes to **dsh-zeroscript** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.1] — 2026-11-13
+
+### Fixed
+
+- **Auto-launch failed when a newer Python landed on PATH without `websockets`.**
+  `findPython()` only checked `python --version`, so a freshly installed Python
+  3.13 was chosen even though bridge.py dies on `import websockets` — invisibly,
+  because the spawn is hidden. The panel then stayed on "Bridge offline" with no
+  explanation. Interpreter selection now probes the real requirement
+  (`Python >= 3.9` **and** an importable `websockets`), skips candidates that
+  fail, and logs each rejection.
+- **`py` was selected but cannot be used for the hidden launch.** `py -3.11` and
+  even a full path to `py.exe` pass the probe yet do not start the script through
+  `WScript.Shell.Run` (verified). Candidates are now resolved to the concrete
+  `python.exe` reported by `sys.executable`, and explicit install paths are
+  tried before launcher shims.
+- Launch failures are now written to `logs/startup.log`
+  (`launch (auto-heal): started ... (python: ...)` / `launch (...): FAILED - ...`)
+  and exposed as `launch` in `/zeroscript-version`, so "bridge offline" always has
+  a readable cause.
+
 ## [1.2.0] — 2026-10-23
 
 ### Added

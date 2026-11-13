@@ -1,6 +1,6 @@
 {
   "name": "dsh-zeroscript",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "description": "Drive Roblox Studio from the DeepSeek Harness agent: the ZeroScript bridge as a DSH plugin, with 28+ Studio tools, a web console, and no terminal window.",
   "license": "MIT",
