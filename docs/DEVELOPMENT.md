@@ -150,6 +150,10 @@ git push
 2. 重新打包（发布包只包含仓库里已有的文件，`node_modules/`、`logs/`、`dcc-output/` 除外）；
 3. `POST /repos/<owner>/<repo>/releases`，`tag_name=vX.Y.Z`；
 4. 把 zip 传到 release asset（`uploads.github.com`），并确认下载链接可用。
+5. **Release 正文用 UTF-8 字节发送**：PowerShell 5.1 的 `Invoke-RestMethod` 会把 `-Body` 字符串
+   按 ANSI 编码，中文会全部变成 `?`（v1.1.0–v1.2.1 就踩过，已手修复）。写成
+   `$bytes = [Text.Encoding]::UTF8.GetBytes($json)` 再作为 `-Body`，或改用
+   `curl --data-binary @body.json`。提交文件本身不受影响（走 base64 blob）。
 
 发布前检查：
 
