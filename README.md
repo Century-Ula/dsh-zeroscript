@@ -8,7 +8,7 @@
 > 下载（Release ZIP）：<https://github.com/Century-Ula/dsh-zeroscript/releases/latest> ·
 > 问题反馈：<https://github.com/Century-Ula/dsh-zeroscript/issues>
 
-![ZeroScript 控制台](docs/console-live.png)
+![ZeroScript 控制台](https://github.com/Century-Ula/dsh-zeroscript/releases/download/v1.2.1/console-live.png)
 
 <p align="center">
   <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
